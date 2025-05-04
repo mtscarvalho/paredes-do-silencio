@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <title>Paredes do silêncio</title>
-<description>Desenrole a fita e descubra o destino de um personagem internado. Uma história interativa onde cada escolha muda tudo.</description>
 <meta property="og:url" content="https://paredesdosilencio.netlify.app/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Paredes do silêncio">
@@ -21,8 +20,14 @@
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Paredes do silêncio.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Paredes do silêncio" startnode="12" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="B2808460-9FE2-4041-A38F-97E41A78496E" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 
+img {
+  display: block;
+  height: auto;
+}
+
 tw-story {
   font-family: "Roboto Slab", serif;
+  padding: 2rem 1.5rem 6rem;
 }
 
 tw-story textarea {
@@ -62,10 +67,6 @@ tw-story textarea:focus-visible {
     }
   });
   
-  
-  
-  
-  
   // 
   //
   
@@ -77,12 +78,14 @@ tw-story textarea:focus-visible {
     audio.play().catch(() => {
       // If autoplay fails, create a button
       const button = document.createElement('button');
-      button.textContent = 'Play Music';
+      button.textContent = 'Iniciar música';
       button.style.position = 'fixed';
       button.style.top = '20px';
       button.style.left = '20px';
       button.style.padding = '10px 20px';
+      button.style.fontFamily = "Roboto Slab"
       button.style.fontSize = '16px';
+      button.style.cursos = "pointer"
       document.body.appendChild(button);
 
       button.addEventListener('click', () => {
