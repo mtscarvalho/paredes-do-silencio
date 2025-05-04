@@ -20,6 +20,10 @@
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Paredes do silêncio.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Paredes do silêncio" startnode="12" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="B2808460-9FE2-4041-A38F-97E41A78496E" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 
+body {
+  background: black;
+}
+
 img {
   display: block;
   height: auto;
@@ -27,7 +31,15 @@ img {
 
 tw-story {
   font-family: "Roboto Slab", serif;
-  padding: 2rem 1.5rem 6rem;
+  padding: 6rem 1.5rem 6rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  tw-story {
+    padding: 2rem 1.5rem 6rem;
+  }
 }
 
 tw-story textarea {
@@ -48,24 +60,30 @@ tw-story textarea:focus-visible {
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">setTimeout(() => {
   const input = document.querySelector("textarea");
   const botaoIniciar = document.querySelector("tw-story:has(textarea) tw-expression[name='link-goto']");
-
-  // Set the placeholder
-  input.setAttribute("placeholder", "Digite o nome");
-
-  // Set the button to be hidden by default
-  botaoIniciar.style.display = "none";
-
-  // Event listener to track input
-  input.addEventListener("input", () => {
-    // Check if input is not empty
-    if (input.value.trim().length > 0) {
-      // If input is not empty, show the button
-      botaoIniciar.style.display = "inline";
-    } else {
-      // If input is empty, hide the button
-      botaoIniciar.style.display = "none";
-    }
-  });
+  
+  if(input) {
+    // Set the placeholder
+  	input.setAttribute("placeholder", "Digite o nome");
+  }
+  
+  if (botaoIniciar) {
+    // Set the button to be hidden by default
+  	botaoIniciar.style.display = "none";
+  }
+  
+  if(input && botaoIniciar) {
+    // Event listener to track input
+    input.addEventListener("input", () => {
+      // Check if input is not empty
+      if (input.value.trim().length > 0) {
+        // If input is not empty, show the button
+        botaoIniciar.style.display = "inline";
+      } else {
+        // If input is empty, hide the button
+        botaoIniciar.style.display = "none";
+      }
+    });
+  }
   
   // 
   //
@@ -94,7 +112,13 @@ tw-story textarea:focus-visible {
       });
     });
 
-}, 100);</script><tw-tag name="sdfdfs" color="none"></tw-tag><tw-passagedata pid="1" name="Introdução" tags="sdfdfs" position="600,150" size="100,100">&#39;&#39;$nome – Paredes do silêncio&#39;&#39;
+}, 100);</script><tw-tag name="sdfdfs" color="none"></tw-tag><tw-passagedata pid="1" name="Introdução" tags="sdfdfs" position="600,150" size="100,100">(set: $nome to (either: $nome, 0))
+
+(if: $nome is 0)[
+  (set: $nome to &quot;João&quot;)
+]
+
+&#39;&#39;$nome – Paredes do silêncio&#39;&#39;
 
 &lt;img src=&quot;https://i.ibb.co/RGcQjvWX/Chat-GPT-Image-May-4-2025-12-27-30-PM-1.jpg&quot; alt=&quot;...&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;max-width: 100%; display: block&quot; /&gt;
 
@@ -103,7 +127,13 @@ Você está prestes a entrar na história de $nome, uma pessoa presa entre lembr
 Está preparado(a)?
 
 [[Vamos lá-&gt;Início]]
-</tw-passagedata><tw-passagedata pid="2" name="Início" tags="" position="625,325" size="100,100">:: Início
+[[Recomeçar-&gt;Nome]]</tw-passagedata><tw-passagedata pid="2" name="Início" tags="" position="725,300" size="100,100">(set: $nome to (either: $nome, 0))
+
+(if: $nome is 0)[
+  (set: $nome to &quot;João&quot;)
+]
+
+:: Início
 
 &lt;img src=&quot;https://i.ibb.co/QFNxRpt8/Chat-GPT-Image-May-4-2025-12-28-22-PM-1.jpg&quot; alt=&quot;...&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;max-width: 100%; display: block&quot; /&gt;
 
@@ -115,8 +145,13 @@ A sós, $nome leva a mão ao bolso do avental. Sente algo ali dentro: um papel a
 
 O que deseja fazer?
 * [[Ler o bilhete-&gt;O bilhete]]
-* [[Ignorar o bilhete e levantar da cama-&gt;O corredor]]
-</tw-passagedata><tw-passagedata pid="3" name="O bilhete" tags="" position="575,475" size="100,100">“Lembre-se de quem você é. A liberdade começa dentro.”  
+* [[Ignorar o bilhete e levantar da cama-&gt;O corredor]]</tw-passagedata><tw-passagedata pid="3" name="O bilhete" tags="" position="575,475" size="100,100">(set: $nome to (either: $nome, 0))
+
+(if: $nome is 0)[
+  (set: $nome to &quot;João&quot;)
+]
+
+“Lembre-se de quem você é. A liberdade começa dentro.”  
 
 &lt;img src=&quot;https://i.ibb.co/4RqVVsL2/Chat-GPT-Image-May-4-2025-12-29-19-PM-1.jpg&quot; alt=&quot;...&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;max-width: 100%; display: block&quot; /&gt;
 
@@ -126,8 +161,13 @@ $nome aperta o bilhete com força, como se pudesse extrair dali um sentido: Espe
 
 O que você quer fazer?
 * [[Guardar o bilhete e caminhar até a janela-&gt;A luz]]
-* [[Procurar por quem escreveu-&gt;O pátio]]
-</tw-passagedata><tw-passagedata pid="4" name="O corredor" tags="" position="700,475" size="100,100">$nome caminha até a porta, o coração acelerado como se cada passo fosse proibido. A maçaneta fria em sua mão parece mais real que tudo ao redor.
+* [[Procurar por quem escreveu-&gt;O pátio]]</tw-passagedata><tw-passagedata pid="4" name="O corredor" tags="" position="775,450" size="100,100">(set: $nome to (either: $nome, 0))
+
+(if: $nome is 0)[
+  (set: $nome to &quot;João&quot;)
+]
+
+$nome caminha até a porta, o coração acelerado como se cada passo fosse proibido. A maçaneta fria em sua mão parece mais real que tudo ao redor.
 
 &lt;img src=&quot;https://i.ibb.co/VWFHpd1y/Chat-GPT-Image-May-4-2025-12-31-23-PM-1.jpg&quot; alt=&quot;...&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;max-width: 100%; display: block&quot; /&gt;
 
@@ -136,8 +176,13 @@ Um enfermeiro, vê e grita, a voz cortando o silêncio do corredor:
 
 $nome congela.
 * [[Enfrentar o enfermeiro-&gt;Enfrentar]]
-* [[Obedecer e se calar-&gt;Obedecer]]
-</tw-passagedata><tw-passagedata pid="5" name="A luz" tags="" position="500,600" size="100,100">$nome levanta os olhos para o feixe de luz que atravessa a janela alta.
+* [[Obedecer e se calar-&gt;Obedecer]]</tw-passagedata><tw-passagedata pid="5" name="A luz" tags="" position="500,600" size="100,100">(set: $nome to (either: $nome, 0))
+
+(if: $nome is 0)[
+  (set: $nome to &quot;João&quot;)
+]
+
+$nome levanta os olhos para o feixe de luz que atravessa a janela alta.
 
 &lt;img src=&quot;https://i.ibb.co/Y72MGFsP/Chat-GPT-Image-May-4-2025-01-00-01-PM-1.jpg&quot; alt=&quot;...&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;max-width: 100%; display: block&quot; /&gt;
 
@@ -145,8 +190,13 @@ Por um instante, não está mais ali. Está no quintal de casa, ainda criança, 
 
 O cheiro do barro, o calor do sol... tudo volta com uma nitidez dolorosa.
 
-[[$nome foge do hospital-&gt;Fim 1]]
-</tw-passagedata><tw-passagedata pid="6" name="O pátio" tags="" position="625,600" size="100,100">$nome sai escondido, com passos cautelosos, evitando os rangidos do chão velho.
+* [[$nome foge do hospital-&gt;Fim 1]]</tw-passagedata><tw-passagedata pid="6" name="O pátio" tags="" position="625,600" size="100,100">(set: $nome to (either: $nome, 0))
+
+(if: $nome is 0)[
+  (set: $nome to &quot;João&quot;)
+]
+
+$nome sai escondido, com passos cautelosos, evitando os rangidos do chão velho.
 
 Chega ao pátio — um espaço cinzento cercado de muros altos, mas onde o céu ainda aparece.
 
@@ -163,8 +213,13 @@ Ela limpa as mãos no avental e faz um gesto sutil com os dedos, como quem revel
 $nome sente o peito apertar. As lágrimas vêm antes que consiga evitá-las.
 Ficou tanto tempo em silêncio... alguém ainda se importava.
 
-[[$nome não consegue fugir-&gt;Fim 2]]
-</tw-passagedata><tw-passagedata pid="7" name="Enfrentar" tags="" position="750,600" size="100,100">$nome  respira fundo e encara o enfermeiro com a voz trêmula, mas firme:
+* [[$nome não consegue fugir-&gt;Fim 2]]</tw-passagedata><tw-passagedata pid="7" name="Enfrentar" tags="" position="750,600" size="100,100">(set: $nome to (either: $nome, 0))
+
+(if: $nome is 0)[
+  (set: $nome to &quot;João&quot;)
+]
+
+$nome  respira fundo e encara o enfermeiro com a voz trêmula, mas firme:
 
 — Quero ar. Só isso!
 
@@ -178,8 +233,13 @@ O silêncio que segue é pesado. $nome sente o próprio peito subir e descer com
 
 E, pela primeira vez em muito tempo, alguém o(a) ouviu.
 
-[[$nome sai com a desinstitucionalização-&gt;Fim 3]]
-</tw-passagedata><tw-passagedata pid="8" name="Obedecer" tags="" position="875,600" size="100,100">$nome volta ao quarto. Senta na cama, sem forças.
+* [[$nome sai com a desinstitucionalização-&gt;Fim 3]]</tw-passagedata><tw-passagedata pid="8" name="Obedecer" tags="" position="875,600" size="100,100">(set: $nome to (either: $nome, 0))
+
+(if: $nome is 0)[
+  (set: $nome to &quot;João&quot;)
+]
+
+$nome volta ao quarto. Senta na cama, sem forças.
 
 &lt;img src=&quot;https://i.ibb.co/hJBDZCdQ/40bcbd18-091f-48da-9f6d-9740009c7d07-1.jpg&quot; alt=&quot;...&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;max-width: 100%; display: block&quot; /&gt;
 
@@ -189,8 +249,13 @@ Fecha os olhos devagar.
 
 Talvez amanhã tenha coragem.
 
-[[$nome não consegue fugir-&gt;Fim 2]]
-</tw-passagedata><tw-passagedata pid="9" name="Fim 1" tags="" position="500,725" size="100,100">$nome escapa durante a troca de turnos, quando os passos apressados dos enfermeiros encobrem os seus.
+[[$nome não consegue fugir-&gt;Fim 2]]</tw-passagedata><tw-passagedata pid="9" name="Fim 1" tags="" position="500,725" size="100,100">(set: $nome to (either: $nome, 0))
+
+(if: $nome is 0)[
+  (set: $nome to &quot;João&quot;)
+]
+
+$nome escapa durante a troca de turnos, quando os passos apressados dos enfermeiros encobrem os seus.
 
 &lt;img src=&quot;https://i.ibb.co/Lz8XzpRZ/Chat-GPT-Image-May-4-2025-01-12-24-PM-1.jpg&quot; alt=&quot;...&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;max-width: 100%; display: block&quot; /&gt;
 
@@ -204,7 +269,15 @@ Conseguiu fugir. Mas as marcas do lugar ainda caminharão juntos. E Luciana, em 
 
 Ainda irão se encontrar...
 
-Fim.</tw-passagedata><tw-passagedata pid="10" name="Fim 2" tags="" position="625,725" size="100,100">$nome não conseguiu escapar.  
+Fim.
+
+* [[Recomeçar-&gt;Nome]]</tw-passagedata><tw-passagedata pid="10" name="Fim 2" tags="" position="625,725" size="100,100">(set: $nome to (either: $nome, 0))
+
+(if: $nome is 0)[
+  (set: $nome to &quot;João&quot;)
+]
+
+$nome não conseguiu escapar.  
 
 &lt;img src=&quot;https://i.ibb.co/rGQ4L4v1/Chat-GPT-Image-May-4-2025-12-57-32-PM-1.jpg&quot; alt=&quot;...&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;max-width: 100%; display: block&quot; /&gt;
 
@@ -216,7 +289,14 @@ $nome escreve pensamentos soltos em guardanapos, frases que surgem como ecos de 
 
 $nome ainda sonha com a liberdade...
 
-Fim.</tw-passagedata><tw-passagedata pid="11" name="Fim 3" tags="" position="750,725" size="100,100">
+Fim.
+
+* [[Recomeçar-&gt;Nome]]</tw-passagedata><tw-passagedata pid="11" name="Fim 3" tags="" position="750,725" size="100,100">(set: $nome to (either: $nome, 0))
+
+(if: $nome is 0)[
+  (set: $nome to &quot;João&quot;)
+]
+
 Tempo se passou, o hospital é desativado.
 
 Uma equipe da saúde chega e acolhe $nome.
@@ -233,7 +313,9 @@ E $nome, enfim, reencontra o caminho de volta para si.
 
 Liberdade!
 
-Fim.</tw-passagedata><tw-passagedata pid="12" name="Nome" tags="" position="450,150" size="100,100">Escolha o nome do personagem:
+Fim.
+
+* [[Recomeçar-&gt;Nome]]</tw-passagedata><tw-passagedata pid="12" name="Nome" tags="" position="450,150" size="100,100">Escolha o nome do personagem:
 
 &lt;img src=&quot;https://i.ibb.co/Q7Wd2Grg/8f47dc79-19e2-4e4f-9134-760835cdb50f-1.jpg&quot; alt=&quot;...&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;max-width: 100%; display: block&quot; /&gt;
 
