@@ -51,6 +51,35 @@ tw-story textarea:focus-visible {
       botaoIniciar.style.display = "none";
     }
   });
+  
+  
+  
+  
+  
+  // 
+  //
+  
+  const audio = new Audio('https://paredesdosilencio.netlify.app/music.mp3'); // Replace with your file path
+    audio.autoplay = true;
+    audio.loop = true;
+
+    // Try to play immediately
+    audio.play().catch(() => {
+      // If autoplay fails, create a button
+      const button = document.createElement('button');
+      button.textContent = 'Play Music';
+      button.style.position = 'fixed';
+      button.style.top = '20px';
+      button.style.left = '20px';
+      button.style.padding = '10px 20px';
+      button.style.fontSize = '16px';
+      document.body.appendChild(button);
+
+      button.addEventListener('click', () => {
+        audio.play();
+        button.remove();
+      });
+    });
 
 }, 100);</script><tw-tag name="sdfdfs" color="none"></tw-tag><tw-passagedata pid="1" name="Introdução" tags="sdfdfs" position="600,150" size="100,100">&#39;&#39;$nome – Paredes do silêncio&#39;&#39;
 
