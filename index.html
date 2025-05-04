@@ -32,7 +32,7 @@ tw-story textarea:focus-visible {
     outline: none;
 }</style><script role="script" id="twine-user-script" type="text/twine-javascript">setTimeout(() => {
   const input = document.querySelector("textarea");
-  const botaoIniciar = document.querySelector("tw-expression[title='[[Iniciar->Introdução]]']");
+  const botaoIniciar = document.querySelector("tw-story:has(textarea) tw-expression[name='link-goto']");
 
   // Set the placeholder
   input.setAttribute("placeholder", "Digite o nome");
@@ -52,7 +52,7 @@ tw-story textarea:focus-visible {
     }
   });
 
-}, 1000);</script><tw-tag name="sdfdfs" color="none"></tw-tag><tw-passagedata pid="1" name="Introdução" tags="sdfdfs" position="600,150" size="100,100">&#39;&#39;$nome – Paredes do silêncio&#39;&#39;
+}, 100);</script><tw-tag name="sdfdfs" color="none"></tw-tag><tw-passagedata pid="1" name="Introdução" tags="sdfdfs" position="600,150" size="100,100">&#39;&#39;$nome – Paredes do silêncio&#39;&#39;
 
 &lt;img src=&quot;https://i.ibb.co/RGcQjvWX/Chat-GPT-Image-May-4-2025-12-27-30-PM-1.jpg&quot; alt=&quot;...&quot; width=&quot;400&quot; height=&quot;400&quot; style=&quot;max-width: 100%; display: block&quot; /&gt;
 
