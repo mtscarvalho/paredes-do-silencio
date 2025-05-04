@@ -57,7 +57,9 @@ tw-expression:has(textarea) {
 
 tw-story textarea:focus-visible {
     outline: none;
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript">setTimeout(() => {
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">sessionStorage.removeItem("Saved Session");
+
+setTimeout(() => {
   const input = document.querySelector("textarea");
   const botaoIniciar = document.querySelector("tw-story:has(textarea) tw-expression[name='link-goto']");
   
